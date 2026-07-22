@@ -31,17 +31,19 @@ svg.ic{width:16px;height:16px;min-width:16px;min-height:16px;flex:0 0 16px;strok
 /* ---------- nav ---------- */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 nav .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
-nav .logo{font-weight:800;font-size:16px}
+nav .logo{font-weight:700;font-size:16px}
 nav ul{display:flex;gap:24px;list-style:none}
-nav ul a{font-size:14.5px;color:var(--sub);font-weight:500}
+nav ul a{font-size:14.5px;color:var(--sub);font-weight:500;position:relative;padding:4px 2px 18px}
 nav ul a:hover{color:var(--blue)}
 nav ul a.active{color:var(--blue);font-weight:700}
+nav ul a.active::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;border-radius:1px 1px 0 0;background:var(--blue)}
 
 /* ---------- hero ---------- */
-.hero{padding:130px 0 64px}
-.hero .overline{display:inline-block;font-size:13.5px;font-weight:700;color:var(--blue-deep);background:var(--blue-soft);border-radius:999px;padding:6px 16px;margin-bottom:16px;letter-spacing:0}
+.hero{padding:130px 0 64px;background-image:radial-gradient(#e7eaf0 1.1px, transparent 1.1px);background-size:34px 34px}
+.hero .overline{display:flex;align-items:center;gap:9px;font-size:14px;font-weight:600;color:var(--ink);margin-bottom:18px;letter-spacing:0}
+.hero .overline::before{content:"";width:9px;height:9px;border-radius:2px;background:var(--blue)}
 .hero h1{font-size:36px;font-weight:700;line-height:1.35;letter-spacing:-0.015em;word-break:keep-all;margin-bottom:16px}
-.hero h1 em{font-style:normal;color:var(--blue);font-weight:700}
+.hero h1 em{font-style:normal;color:var(--blue);font-weight:700;background:linear-gradient(180deg, transparent 40%, #dce8fd 40%);padding:0 2px}
 .hero .sub{font-size:16px;color:var(--sub);word-break:keep-all;max-width:600px;margin-bottom:24px;line-height:1.7}
 .hero .contact{display:flex;flex-wrap:wrap;gap:10px 24px;font-size:14px;color:var(--sub)}
 .hero .contact span{display:inline-flex;align-items:center;gap:7px}
@@ -50,34 +52,36 @@ nav ul a.active{color:var(--blue);font-weight:700}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px}
 .stat{background:#f7f8f9;border:none;border-radius:14px;padding:20px 22px}
 .stat .lab{font-size:12px;font-weight:600;color:var(--blue);margin-bottom:7px}
-.stat .num{font-size:19px;font-weight:700;line-height:1.35;word-break:keep-all}
+.stat .num{font-size:19px;font-weight:600;line-height:1.35;word-break:keep-all}
 .stat .desc{font-size:13px;color:var(--sub);margin-top:7px;word-break:keep-all}
 
 /* ---------- sections ---------- */
 section{padding:64px 0 20px}
 .sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:8px}
-.sec-no{font-size:14px;font-weight:800;color:var(--blue);letter-spacing:.05em}
-h2.sec-title{font-size:28px;font-weight:800;word-break:keep-all}
+.sec-no{font-size:14px;font-weight:700;color:var(--blue);letter-spacing:.05em}
+h2.sec-title{font-size:23px;font-weight:600;word-break:keep-all}
 .sec-desc{color:var(--sub);font-size:15px;margin-bottom:30px;word-break:keep-all}
 
 /* ---------- cards ---------- */
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:14px}
 .card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px 24px 20px;cursor:pointer;transition:.2s;display:flex;flex-direction:column;box-shadow:0 2px 10px rgba(17,19,24,.04)}
 .card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(17,19,24,.1);border-color:#c9dcf9}
-.card .top{display:flex;align-items:center;gap:13px;margin-bottom:13px}
+.card{position:relative}
+.card .card-no{position:absolute;top:20px;right:22px;font-size:13px;font-weight:700;color:#c9d6f2;letter-spacing:.04em}
+.card .top{display:flex;align-items:center;gap:13px;margin-bottom:13px;padding-right:34px}
 .card .logo{width:44px;height:44px;border-radius:11px;object-fit:cover;flex-shrink:0;border:1px solid var(--line)}
 .card .logo.wide{width:auto;max-width:100px;object-fit:contain}
 .logo.nb,.m-logo.nb{border:none}
-.card h3{font-size:17.5px;font-weight:800;word-break:keep-all;line-height:1.35}
+.card h3{font-size:17.5px;font-weight:700;word-break:keep-all;line-height:1.35}
 .card .period{font-size:12.5px;color:var(--muted);margin-top:2px}
 .card .oneliner{font-size:14px;color:var(--sub);word-break:keep-all;margin-bottom:13px;flex:1}
 /* 카드 뱃지: 성과 중심, 파란 배경 알약형 */
 .card .metric{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
-.kpi{font-size:12.5px;font-weight:600;padding:4px 11px;border-radius:999px;background:var(--blue-soft);color:var(--blue-deep)}
+.kpi{font-size:12.5px;font-weight:500;padding:4px 11px;border-radius:7px;background:var(--blue-soft);color:var(--blue-deep)}
 /* 썸네일 */
 .thumbs{display:flex;gap:12px;margin-bottom:14px;align-items:center;justify-content:center;min-height:120px}
 .thumbs img{height:118px;width:auto;max-width:48%;object-fit:contain;border:none;border-radius:10px;background:transparent}
-.card .open{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--blue);border-top:1px solid var(--line);padding-top:13px}
+.card .open{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--blue);border-top:1px solid var(--line);padding-top:13px}
 .card .open svg.ic{transition:.2s}
 .card:hover .open svg.ic{transform:translateX(3px)}
 
@@ -91,23 +95,23 @@ h2.sec-title{font-size:28px;font-weight:800;word-break:keep-all}
 .m-head{display:flex;align-items:center;gap:15px;padding:28px 36px 0}
 .m-logo{width:50px;height:50px;border-radius:12px;object-fit:cover;border:1px solid var(--line);flex-shrink:0}
 .m-logo.wide{width:auto;max-width:110px;object-fit:contain}
-.m-head h3{font-size:21px;font-weight:800;word-break:keep-all;line-height:1.3}
+.m-head h3{font-size:21px;font-weight:700;word-break:keep-all;line-height:1.3}
 .m-period{font-size:13px;color:var(--muted);margin-top:3px}
 .m-body{padding:14px 36px 36px}
 /* 모달 뱃지: 역할/기여도 중심, 회색 아웃라인 사각형 */
 .m-meta{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 16px}
-.role{font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:7px;background:#fff;border:1px solid #d5d8dd;color:var(--sub)}
+.role{font-size:12.5px;font-weight:500;padding:4px 10px;border-radius:7px;background:#fff;border:1px solid #d5d8dd;color:var(--sub)}
 .role.ai{display:inline-flex;align-items:center;gap:6px}
 .m-summary{font-size:15px;color:var(--sub);word-break:keep-all;margin-bottom:24px;padding:15px 18px;background:var(--gray-soft);border-radius:12px}
 .blk{margin-bottom:24px}
-.blk h4{font-size:16px;font-weight:800;margin-bottom:9px;display:flex;align-items:center;gap:9px}
-.blk h4 .n{width:21px;height:21px;min-width:21px;border-radius:6px;background:var(--acc,var(--blue));color:#fff;font-size:11.5px;font-weight:800;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.blk h4{font-size:16px;font-weight:600;margin-bottom:9px;display:flex;align-items:center;gap:9px}
+.blk h4 .n{width:21px;height:21px;min-width:21px;border-radius:6px;background:var(--acc,var(--blue));color:#fff;font-size:11.5px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
 .blk p,.blk li{font-size:14.5px;color:var(--sub);word-break:keep-all}
 .blk ul{padding-left:19px;display:flex;flex-direction:column;gap:5px}
 .blk b{color:var(--ink);font-weight:500}
 .results{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
 .r-item{background:var(--acc-soft,var(--blue-soft));border-radius:12px;padding:14px 15px}
-.r-item .rn{font-size:18px;font-weight:800;color:var(--acc-deep,var(--blue-deep))}
+.r-item .rn{font-size:18px;font-weight:700;color:var(--acc-deep,var(--blue-deep))}
 .r-item .rd{font-size:12.5px;color:var(--sub);margin-top:3px;word-break:keep-all}
 .learn{background:var(--gray-soft);border-left:3px solid var(--acc,var(--blue));border-radius:0 10px 10px 0;padding:14px 18px}
 .learn p{font-size:14px}
@@ -124,7 +128,7 @@ h2.sec-title{font-size:28px;font-weight:800;word-break:keep-all}
 
 /* diagram frame */
 .dg{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden;margin:12px 0 6px}
-.dg .dg-t{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;color:var(--sub);background:var(--gray-soft);border-bottom:1px solid var(--line);padding:9px 15px}
+.dg .dg-t{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;color:var(--sub);background:#fff;border-bottom:1px solid var(--line);padding:10px 15px 8px}
 .dg .dg-t svg.ic{width:14px;height:14px;min-width:14px;min-height:14px;flex:0 0 14px;color:var(--acc,var(--blue))}
 .dg .dg-c{padding:16px 14px 12px;overflow-x:auto}
 .dg svg.diagram{display:block;width:100%;height:auto;min-width:620px;overflow:visible}
@@ -132,36 +136,37 @@ h2.sec-title{font-size:28px;font-weight:800;word-break:keep-all}
 .dg .dg-note{font-size:11.5px;color:var(--muted);text-align:center;padding:0 14px 12px;word-break:keep-all}
 
 /* svg shared text: Pretendard, gray + single blue */
-svg .t1{font:700 13.5px Pretendard,sans-serif;fill:#111318}
-svg .t1g{font:700 13.5px Pretendard,sans-serif;fill:#6b7280}
-svg .t1b{font:700 13.5px Pretendard,sans-serif;fill:var(--acc,#1f6be0)}
+svg .t1{font:600 13.5px Pretendard,sans-serif;fill:#111318}
+svg .t1g{font:600 13.5px Pretendard,sans-serif;fill:#6b7280}
+svg .t1b{font:600 13.5px Pretendard,sans-serif;fill:var(--acc,#1f6be0)}
 svg .t2{font:500 11.5px Pretendard,sans-serif;fill:#6b7280}
 svg .t2l{font:500 11px Pretendard,sans-serif;fill:#9aa1ab}
-svg .t1w{font:700 13px Pretendard,sans-serif;fill:#fff}
-svg .lab{font:800 11px Pretendard,sans-serif}
+svg .t1w{font:600 13px Pretendard,sans-serif;fill:#fff}
+svg .lab{font:700 11px Pretendard,sans-serif}
 svg .chip{font:600 11px Pretendard,sans-serif}
 
 /* profile */
 .duo2{display:grid;grid-template-columns:1fr 1fr;gap:8px 56px;align-items:start}
+.prof1{width:100%}
 .prow-b{margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid #f2f3f5}
 .prow-b:last-child{border-bottom:none}
 .p-bullets{list-style:none;padding:6px 0 0;display:flex;flex-direction:column;gap:3px}
 .p-bullets li{font-size:13px;color:var(--sub);word-break:keep-all;padding-left:12px;position:relative}
 .p-bullets li::before{content:"";position:absolute;left:0;top:9px;width:4px;height:4px;border-radius:50%;background:#c9ced6}
 .p-group{margin-bottom:26px}
-.p-h{font-size:15.5px;font-weight:800;color:var(--ink);letter-spacing:0;margin-bottom:8px;padding-bottom:8px;border-bottom:2px solid var(--ink)}
+.p-h{font-size:15.5px;font-weight:700;color:var(--ink);letter-spacing:0;margin-bottom:8px;padding-bottom:8px;border-bottom:2px solid var(--ink)}
 .prow{display:flex;align-items:baseline;justify-content:space-between;gap:18px;padding:9px 0 2px}
 .p-l{font-size:14px;color:var(--sub);word-break:keep-all}
-.p-l b{color:var(--ink);font-weight:600;font-size:14.5px;margin-right:2px}
+.p-l b{color:var(--ink);font-weight:500;font-size:14.5px;margin-right:2px}
 .p-role{display:block;font-size:12.5px;color:var(--muted);margin-top:1px}
 .p-note{display:block;font-size:12.5px;color:var(--muted);margin-top:1px}
 .p-r{font-size:12.5px;color:var(--muted);white-space:nowrap;flex-shrink:0;font-variant-numeric:tabular-nums}
 /* skills */
 .skills{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .sk{background:#f7f8f9;border:none;border-radius:14px;padding:20px}
-.sk-label{font-size:13px;font-weight:700;color:var(--muted);letter-spacing:.04em;margin:22px 0 10px}
+.sk-label{font-size:13px;font-weight:600;color:var(--muted);letter-spacing:.04em;margin:22px 0 10px}
 .sk .edu{font-size:12px;color:var(--muted);margin-top:8px}
-.sk .t{font-weight:800;font-size:15px;margin-bottom:7px;display:flex;align-items:center;gap:8px}
+.sk .t{font-weight:600;font-size:15px;margin-bottom:7px;display:flex;align-items:center;gap:8px}
 .sk .t svg.ic{color:var(--blue)}
 .sk p{font-size:13px;color:var(--sub);word-break:keep-all}
 
@@ -199,7 +204,7 @@ footer svg.ic{color:var(--blue)}
 
 <div class="hero">
   <div class="wrap">
-    <div class="overline">김유경 포트폴리오</div>
+    <div class="overline">김유경 &nbsp;포트폴리오</div>
     <h1>생각을 <em>구조</em>로, 구조를 <em>경험</em>으로 바꿉니다</h1>
     <p class="sub">복잡한 문제를 구조로 정리하고 실행 가능한 기획으로 연결합니다.<br>요구사항 정의부터 정책 설계, 와이어프레이밍, QA까지 서비스의 처음과 끝을 만들 수 있습니다.</p>
     <div class="contact">
@@ -233,6 +238,7 @@ footer svg.ic{color:var(--blue)}
     <div class="cards">
 
       <div class="card" data-modal="m-ops">
+        <span class="card-no">01</span>
         <div class="top">
           <img class="logo" src="data:image/webp;base64,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" alt="이츠웍스">
           <div><h3>매장 설비 유지보수 접수 개편</h3><div class="period">2025.04 - 2025.11 | 이랜드이츠 이츠웍스</div></div>
@@ -244,6 +250,7 @@ footer svg.ic{color:var(--blue)}
       </div>
 
       <div class="card" data-modal="m-chal">
+        <span class="card-no">02</span>
         <div class="top">
           <img class="logo" src="data:image/webp;base64,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" alt="모두의챌린지">
           <div><h3>모두의챌린지 탐색 창 개선</h3><div class="period">2023.07 - 2023.09 | 넛지헬스케어 캐시워크</div></div>
@@ -266,6 +273,7 @@ footer svg.ic{color:var(--blue)}
     <div class="cards">
 
       <div class="card" data-modal="m-cola">
+        <span class="card-no">03</span>
         <div class="top">
           <img class="logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4OCA4OCI+PHJlY3Qgd2lkdGg9Ijg4IiBoZWlnaHQ9Ijg4IiByeD0iMjAiIGZpbGw9IiNmZmZmZmYiLz48cmVjdCB4PSIwLjc1IiB5PSIwLjc1IiB3aWR0aD0iODYuNSIgaGVpZ2h0PSI4Ni41IiByeD0iMTkuMjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2U1ZTdlYiIgc3Ryb2tlLXdpZHRoPSIxLjUiLz48ZyBzdHJva2U9IiNEOTc3NTciIHN0cm9rZS13aWR0aD0iNi41IiBzdHJva2UtbGluZWNhcD0icm91bmQiPjxsaW5lIHgxPSI1Ni45IiB5MT0iNDUuOCIgeDI9Ijc3LjciIHkyPSI0OC43Ii8+PGxpbmUgeDE9IjU0LjIiIHkxPSI1Mi4wIiB4Mj0iNjcuNiIgeTI9IjYyLjUiLz48bGluZSB4MT0iNDguOSIgeTE9IjU2LjEiIHgyPSI1NS4yIiB5Mj0iNzEuOCIvPjxsaW5lIHgxPSI0Mi4yIiB5MT0iNTYuOSIgeDI9IjM5LjMiIHkyPSI3Ny43Ii8+PGxpbmUgeDE9IjM2LjAiIHkxPSI1NC4yIiB4Mj0iMjUuNSIgeTI9IjY3LjYiLz48bGluZSB4MT0iMzEuOSIgeTE9IjQ4LjkiIHgyPSIxNi4yIiB5Mj0iNTUuMiIvPjxsaW5lIHgxPSIzMS4xIiB5MT0iNDIuMiIgeDI9IjEwLjMiIHkyPSIzOS4zIi8+PGxpbmUgeDE9IjMzLjgiIHkxPSIzNi4wIiB4Mj0iMjAuNCIgeTI9IjI1LjUiLz48bGluZSB4MT0iMzkuMSIgeTE9IjMxLjkiIHgyPSIzMi44IiB5Mj0iMTYuMiIvPjxsaW5lIHgxPSI0NS44IiB5MT0iMzEuMSIgeDI9IjQ4LjciIHkyPSIxMC4zIi8+PGxpbmUgeDE9IjUyLjAiIHkxPSIzMy44IiB4Mj0iNjIuNSIgeTI9IjIwLjQiLz48bGluZSB4MT0iNTYuMSIgeTE9IjM5LjEiIHgyPSI3MS44IiB5Mj0iMzIuOCIvPjwvZz48L3N2Zz4=" alt="Claude">
           <div><h3>공짜 콜라 자판기, AI 리뷰 생성기 제작</h3><div class="period">2026.07 | 기획, 개발, 배포</div></div>
@@ -277,6 +285,7 @@ footer svg.ic{color:var(--blue)}
       </div>
 
       <div class="card" data-modal="m-zz">
+        <span class="card-no">04</span>
         <div class="top">
           <img class="logo" src="data:image/webp;base64,UklGRpIEAABXRUJQVlA4IIYEAACwGgCdASqAAIAAPmEskUWkIqGXSwzMQAYEoIcAGQnxv+g7JDRndPyq6WHg00K6yNAv8o9TPmAfrH0lP//6AP12/ZL3a/QB6AH+Z/wHW5egB5bXs0+UBqnfljsGrwN9GVswF+sFcHE0iowKMzjO2u5s24QcI1ojUYblRT/7ZsgSklsAoU+O5e9E4EOOwQfIbVZFS3rfW9RhEvhyzd3LomVlCH3Rz2Qo5C1ppOi0OoOOdAZ0MNMgUFBT2TidYWYUODSSNUN9kQloEwkBzHn/32wxntYWMnLO390CbhKBUAAA/vzwngCjDwvJaZp9IItAFkEof2AnwGQ+Fvf8ofEj4b/Kf85YDEVJapZi6c98MGVc0eAHRbasZQQ7rSZvJLsMaTnyh7OcyEnGi25VimfqkSpNpAJF3ECI6Uy3ygNIO8amaVz16NqGMgm8pXd0oiicxZCt6Sg/Wu87SGdYAViy1Erl/Va1OiHkBd4pM8FXzOTyDtplIRmMT+vdsgtzc21U3qSZgCYbiGd4owjHIvyXQjMAGvf/Rg6uQx05QHQzPVyP3KPVv+y38oL0wLxdrrBz/P5SPO6KJFfyF36iusbkBJib2USbfv3AS7qpmEwxpBvvX5TN/EuJaChnvvOxZO/8hfBH+IkKSaUlQplHCJP/cBoh/lYJOHVE+uHNXFKAE9qw3Ovtz1FoEnw0McGYvJ9pOyucpYeBTHhBGGfem6d275dxSpVtd0X8j0/zKa/CVnLgsDdVsiA89XPTkI8d416LcHrvQnGBPDd9h4Gkd+8p3EtTIdktlDn9/bGOJmW47xfHYR5Vi2SUCKSKCdsdPX9XTlU7QrSgr3qp0yp8tgsAtGaPctnUZlkBxbtuDnV7oZbHrn62YWFsj1qVtGcJ/go7UpLBmEVAKMVcptrOEUh/xb7t0TqSEovmGdH4lVqmRAVy/8noS5LqQf6k9ZftwAwBDJgBrVnS8Z6C9/pc5dI7blHNftsAGQaupSfLPjTfWcgyhTS/G+EenIJpjNj0ErPp/zlH8CB4oYVORxperpizq5rq8ENxwCkDfZRNGb+5HxfiybZTtOmRNh9qIgrEmbUUgyBXSc0ITTFyQpFskleuZtcArbmTgHD/+SX4tpXBY/52qVSgJ2LRsU3DAzK0UDEpq11Qe5/D4Lj/zN520QAm9JxV0chlCsdHkUT/roU/jw/5jEPb05y0ngeJq2iMSxkEChqOkUkVH0Un9AWX/4YheWEjUL3esOD674on3lk3FbK6eWBSSS0+My5aH2x/ylU+vQDyxsfwE//GQ+jYPIlCzF/c8IPZPDdQ82/DJagGe6Ph1J30aLu3eQWbetNlmfr7DYTnKiBjhnmqCJjdLEh90L/6rufMbFQB1VRL1k8q9SF7NUsMV2Z72TKSUORy2pjQgWFcKG/LX+jP9ES18BEza28pKuWXnt9vbm6AEOala1EFGX+AYngBs2AeHbDUhGXo7MMSEG6cSOmzE1AnuoMeMrohuHEnmw2IGlTjPaBGTUGoJrxXXBMN/YC/b2HifySV4Y+IYRXnQAA=" alt="지그재그">
           <div><h3>지그재그 무드보드 스타일 탐색 제안</h3><div class="period">2025.10 | 신규 기능 제안</div></div>
@@ -288,6 +297,7 @@ footer svg.ic{color:var(--blue)}
       </div>
 
       <div class="card" data-modal="m-mind">
+        <span class="card-no">05</span>
         <div class="top">
           <img class="logo" src="data:image/webp;base64,UklGRsgFAABXRUJQVlA4WAoAAAAQAAAAfwAAfwAAQUxQSEgBAAABgBvbturm/AeRetAoMhXAzK5BBcjuh9kZNqPQ1AN98/v33WOQFfnGiogJQEcXgMHW0U2p/P/v2+frgxHOodsCmN94o6GvpyuA68Kh7/iNKllt0CxkdVCH+yNg7JZMSkO1Ul5NIHbwaJZMSmNVmJrwAAqMJGYanFkOo0CBxjUzTVbeDsJ5f0Ch0RVPXMDSu6hVKo/TqF2yotmJu7HvlWoX83P/GoWGC1vnzJZlPW5TLSNvHmh8SevVvJ7/e/7vCV7NK627v7ZN2T7SbFnmRYtimXCt/zkbpnzti7tMdlW8rGHmSdQqlfclBHfCyirhgfcOg3dUmzKvGyhQYKRktigzjaIA4NFMFLVGE8smPH5HTFxRK7VEE3k7joDODvUDISWrDZpF+XbcB4+/HbB6+kpD3zfmgQLdOoc4uH7evjdAy5uj1hAQHDoCVlA4IFoEAABwGgCdASqAAIAAPmEskUWkIqGYOfQAQAYEtIAK8s/pfbB/bK6D/OeCT4T7UH97/Kjg5eQf1riX0ikxv9h/Nr+Vf57/zf5b4BP5n/Xv+b6lfr3/Zb2Uv2WLm4p4a9wjuwUWI/Hx34d3D6G13+jbNHQwxVROdJ7/ZPZjBLbaG/CN2XWelfWWQ20I+irsOOKT4v/RzRr2DFme97qqjgVs40nL8ybqImV7ZZu+yDJQLq8MnPNWVkFLwYSthcBzU3XdwL47slwQ5Awa61Kz1BetxImvFovULJKefCZmZhIAAP78rRAVnQGNXHEN5jfgNKYgwLZYMDutmnECwOM4g5cL/4tZ9WWQWHLj9LYrKJOvBEuaSe7tz/xYzZ4r2bzG94ETYX+tq8MXdX9kGHbQBmvp8er8gJy+cBUTFQokywaOeG1bVTgL7yRds2H0/qHO3Y2Nsyfv8NLG+wjEW+QiI5JCWhRhxVP5eY19UHqL8NymcRfzI+yPENDOQ/ijbqcflAJ3qYy9he4IVSlLoQ/qh4AKXNVUrru7LEtLlBNdFJby1cwNSD2pKGdymrCsTz0NMILi7jyMZAD/XXCV/+F8C/GZ7yKtWKeBnQw9rMaADBX2oFOgU2Z2NijsyPkpLYMApWy6M+bmaPI6MjHlS38nlXc6rFomqIzM2DINtey9qP6PJtupVrAezisTZWMBVpKSWR3vc6ejJ60sopAfUkVuPiZ+ajM7EPr9SMgjLlRW6jV6mS414eXV/pIv8sPdfM3O29uXRsfIIC05HeRtXHuQsCzkN4odm2iBoXrc0BPjkDPQN6fM0vwBouzp7gjzidgLpDOkR8FGVQhE/s+v4Sqg7Ybhfj5xAjCcZb8FSUQ6rZe2+W3/ktdJqypunpVu4aknYtzDCfMjMZPHdFWEHWLhjea3T8+Qv+wqQJTP2cmT13MFn7y4qjuSCoB1NaGM9onXVFsUXf/ggUks9p6gnrYxsJlBuoo0XoOxVajTLrSB4KKeP45YubtoVx2EH81GzHqWlJmTYSFw2wbgWLV4fQrh/qGURhpJNiz2hSsX6kwkqbzEDf5/mID0hBMbgQHf46zbCfz6bpjNGZRnExq44yX3/lxT/jmRjhGgvfR4OM+MPu+6tv8083c2vnqxV6BXrDizHEopqq79z2/ueNKoQ4vJvGUhE4K8WgwvZKkMGLBtjYveTcP0UBXP65afknS1HQlo9Li/PCnIyO6ksuuIl/f5VfYjUvwOL/kPZv5/DAEtJYkiwPSHf/a8h/x5Bxh/VZ8ITg+EhcUWm4I3/QLtAfro2koUMv8GZ8X9XxWp4lChk3ABL7poThvgau+Ua8MuhoIm1Gi9XBGwL5bTN+WkYWmAkMVNb87/4QBDC4nKwgEr/81GVieVnStfOUl/hviLX/fx+SYYOIcebxPb0VOtwxzX0IGe+9swM3FMZrGNaMttilrUP02gVfE9I2/yHH/sP6UfNYFEcPpeqvcPO6AAAAAA" alt="마음보기">
           <div><h3>감정 일기앱 마음보기 (iOS)</h3><div class="period">2023.10 - 2023.12 | 사이드 프로젝트 PM</div></div>
@@ -299,6 +309,7 @@ footer svg.ic{color:var(--blue)}
       </div>
 
       <div class="card" data-modal="m-news">
+        <span class="card-no">06</span>
         <div class="top">
           <img class="logo nb" src="data:image/webp;base64,UklGRnoEAABXRUJQVlA4IG4EAACwGQCdASp4AIAAPmEqkkYkJyIjKhGroOAMCWQDsB0yuXpgPEfA84u1P4X8Lcr+frcK/Zb1ZvSf6AH9c/x3XAehf5cPs8ft96RzlMdm8uuTBCV1Lu3PY7po3zVAOu5tXLrUSnivgn7X///0MLTkeyEYQD1cz23XmJHpDiuLYjWXuUYhMHHkdAZYBFUKBLHgfD27o/zisT+4LLsISCM/j7WEbcW73w5RikrUR3dxrD9jLwIEL++6Qscgf//4XfpjSNKaqCyfkqn1iScGGZO39Y3Sb+BMmouYAP7+k8OZszM6+si/epbPfU3hhoQEEMzkl8KV4Pf+D7Wk5s/pj6GdAA0xbRbJj8mrw6t2LOY9+3AjgkNmvgjoBAmzADoszJhG3yLaC7RPXsiwEdd4sCiapIRPovU9V7MB7UcUzLEFikgpCzYvUBLkGADuaaKYouCiuIzFDkGWPguinDgYebeBWSPF6j0Hu4kD7WF6dVypttfZhySYU1DjiC9tcYwwK57zfg0JDd3LIdbhoHyNjTOcsMHvR5DHh59yR/8J8j0KJlDi5/TkfeHmfZ1OUznpy/oNuJmJ5NltCoVvUAjiagqgEE2jNCMFJEV7snw7eSzSXi4Cg0dGHf/0QStAOSL0aHOGfKBsNA+lgHJSn/QJtZdRai7Yy3kE94/DbHrz/61tFFEZip+eDSFvt/TRzqZipcOkpk0lgxkYzfFUBYoaX+SDZHFzPhtsExRB/j9fZe7I/HrYjUvOAtdElUCRHDlhIPn5E4r8cbgZ3nVh/r5c+p4/Stm6Wc7c1gP+UIOxHzvNsDk2IEE/+Ssl/gKLEAg0LeU+2RtMM1sYmi8Ok9+JczAFHLFIvUfCaZPgAMazRVHX+sQZCL26u9r734/OOgZcOtHp2vDYG/fn0gG49Lv1/+01rtEeLUlZkJWY/zr/kCqE/x5+0FADYCZ/7NFdCBOh3Ou8UmVE/uBVOUzLGfRtTaS9+D5JDdbzZgyOJHEOyLGlqIrXLPh/vpHY5H2H5Jb8GdW0BOxaZgDlw9pUf29vDdo1Item3UTC5piSIKIs2pumuU7XkMhhGpmlM28tD8T3eS0delhKR8Tgjmb2+rmIW7IB3ybkbv+lH4wBRkU/4D/hrnJupJlCWHPS9sxnMQXqDyyhbRzUDB/oQlMKpv8qe0VhiM8wY0ManqkzPWsXahpxzP6gQgujKJwjkae+etL5qFEqtc45/+EMJoF5UyIK1eWUZgaoRrsXQvLBK/OcffGeScZ/b4ChYQWOlnhWg00WUC9SYp1d5rATa6TeNpNzaTQ3wfDJ357EIf6rtBoLFE5bRAAQs3RaSZ5+NioRn0/zXcCLTxOkaXomM/6tYYcOvO8LfYX7A1JBR4LtTCKyWqi3OuSBHcgPTg6jf0TzOrJfb2ErMSf7D1Qeb7MpRCWlixnadPMh9D3WT4yJZ01soITH2am8853yfnzrmH9Yaq35pBmbV8HLFvUpBwDskX3x7y0vcSxIr0twp2JlxR8AcUUAAAA=" alt="다음">
           <div><h3>다음 카카오 뉴스 서비스 기획 과제</h3><div class="period">2022.10 | 콘텐츠 서비스 기획</div></div>
@@ -336,54 +347,48 @@ footer svg.ic{color:var(--blue)}
 <section id="profile" style="padding-bottom:100px">
   <div class="wrap">
     <div class="sec-head"><span class="sec-no">04</span><h2 class="sec-title">이력</h2></div>
-    <div class="duo2">
-      <div>
-        <div class="p-h">경력</div>
-        <div class="prow-b">
-          <div class="prow"><div class="p-l"><b>이랜드이츠</b><span class="p-role">IT솔루션팀 매니저</span></div><div class="p-r">2024.04 - 2026.04 (2년)</div></div>
-          <ul class="p-bullets">
-            <li>모바일 ERP &lt;이츠웍스&gt; 기획</li>
-            <li>대기 예약 시스템 개선 기획</li>
-          </ul>
-        </div>
-        <div class="prow-b">
-          <div class="prow"><div class="p-l"><b>넛지헬스케어</b><span class="p-role">서비스 기획 인턴</span></div><div class="p-r">2023.07 - 2023.10 (3개월)</div></div>
-          <ul class="p-bullets">
-            <li>모두의챌린지 UX/UI 개선</li>
-            <li>백오피스 개선 기획</li>
-          </ul>
-        </div>
-        <div class="prow-b">
-          <div class="prow"><div class="p-l"><b>카카오</b><span class="p-role">콘텐츠데이터파트 어시스턴트</span></div><div class="p-r">2021.06 - 2021.09 (3개월)</div></div>
-          <ul class="p-bullets">
-            <li>뉴스 도메인 리서치, 정성 데이터 분석</li>
-          </ul>
-        </div>
-        <div class="p-h" style="margin-top:26px">학력</div>
-        <div class="prow"><div class="p-l"><b>숭실대학교</b><span class="p-role">경영학과 (OM&amp;MIS 전공)</span></div><div class="p-r">2023.08 졸업</div></div>
+    <div class="prof1">
+      <div class="p-h">경력</div>
+      <div class="prow-b">
+        <div class="prow"><div class="p-l"><b>이랜드이츠</b><span class="p-role">IT솔루션팀 매니저</span></div><div class="p-r">2024.04 - 2026.04 (2년)</div></div>
+        <ul class="p-bullets">
+          <li>모바일 ERP &lt;이츠웍스&gt; 기획</li>
+          <li>대기 예약 시스템 개선 기획</li>
+        </ul>
       </div>
-      <div>
-        <div class="p-h">자격</div>
-        <div class="prow"><div class="p-l">데이터 분석 준전문가 ADsP</div><div class="p-r">2023.03</div></div>
-        <div class="prow"><div class="p-l">SQL 개발자 SQLD</div><div class="p-r">2021.04</div></div>
-        <div class="prow"><div class="p-l">컴퓨터활용능력 1급</div><div class="p-r">2021.02</div></div>
-        <div class="p-h" style="margin-top:26px">활동 및 수상</div>
-        <div class="prow-b">
-          <div class="prow"><div class="p-l"><b>롯데장학재단</b><span class="p-role">롯데 드림메이커스 5기</span></div><div class="p-r">2023.04 - 2024.01</div></div>
-          <ul class="p-bullets"><li>롯데ON 플랫폼 개선 프로젝트 수상</li></ul>
-        </div>
-        <div class="prow-b">
-          <div class="prow"><div class="p-l"><b>중앙대 인문콘텐츠연구소</b><span class="p-role">인공지능인문학 대학생 학술대회 우수상</span></div><div class="p-r">2022.06</div></div>
-          <ul class="p-bullets"><li>'인공지능 문학의 가능성과 한계, 문학의 기능과 독자 감상을 중심으로' 학술 논문 작성</li></ul>
-        </div>
-        <div class="prow-b">
-          <div class="prow"><div class="p-l"><b>한국정보산업연합회</b><span class="p-role">SW마에스트로 서포터즈</span></div><div class="p-r">2023.03 - 2023.12</div></div>
-          <ul class="p-bullets"><li>IT 트렌드 콘텐츠 제작 및 배포</li></ul>
-        </div>
-        <div class="prow-b">
-          <div class="prow"><div class="p-l"><b>숭실대 IT 동아리 유어슈</b><span class="p-role">커뮤니티 서비스 기획</span></div><div class="p-r">2020.03 - 2020.12</div></div>
-          <ul class="p-bullets"><li>숭실대 커뮤니티 &lt;그라운드&gt; 개선 기획</li></ul>
-        </div>
+      <div class="prow-b">
+        <div class="prow"><div class="p-l"><b>넛지헬스케어</b><span class="p-role">서비스 기획 인턴</span></div><div class="p-r">2023.07 - 2023.10 (3개월)</div></div>
+        <ul class="p-bullets">
+          <li>모두의챌린지 UX/UI 개선</li>
+          <li>백오피스 개선 기획</li>
+        </ul>
+      </div>
+      <div class="prow-b">
+        <div class="prow"><div class="p-l"><b>카카오</b><span class="p-role">콘텐츠데이터파트 어시스턴트</span></div><div class="p-r">2021.06 - 2021.09 (3개월)</div></div>
+        <ul class="p-bullets">
+          <li>뉴스 도메인 리서치, 정성 데이터 분석</li>
+        </ul>
+      </div>
+      <div class="p-h" style="margin-top:30px">자격</div>
+      <div class="prow"><div class="p-l">데이터 분석 준전문가 ADsP</div><div class="p-r">2023.03</div></div>
+      <div class="prow"><div class="p-l">SQL 개발자 SQLD</div><div class="p-r">2021.04</div></div>
+      <div class="prow"><div class="p-l">컴퓨터활용능력 1급</div><div class="p-r">2021.02</div></div>
+      <div class="p-h" style="margin-top:30px">활동 및 수상</div>
+      <div class="prow-b">
+        <div class="prow"><div class="p-l"><b>롯데장학재단</b><span class="p-role">롯데 드림메이커스 5기</span></div><div class="p-r">2023.04 - 2024.01</div></div>
+        <ul class="p-bullets"><li>롯데ON 플랫폼 개선 프로젝트 수상</li></ul>
+      </div>
+      <div class="prow-b">
+        <div class="prow"><div class="p-l"><b>중앙대 인문콘텐츠연구소</b><span class="p-role">인공지능인문학 대학생 학술대회 우수상</span></div><div class="p-r">2022.06</div></div>
+        <ul class="p-bullets"><li>'인공지능 문학의 가능성과 한계, 문학의 기능과 독자 감상을 중심으로' 학술 논문 작성</li></ul>
+      </div>
+      <div class="prow-b">
+        <div class="prow"><div class="p-l"><b>한국정보산업연합회</b><span class="p-role">SW마에스트로 서포터즈</span></div><div class="p-r">2023.03 - 2023.12</div></div>
+        <ul class="p-bullets"><li>IT 트렌드 콘텐츠 제작 및 배포</li></ul>
+      </div>
+      <div class="prow-b">
+        <div class="prow"><div class="p-l"><b>숭실대 IT 동아리 유어슈</b><span class="p-role">커뮤니티 서비스 기획</span></div><div class="p-r">2020.03 - 2020.12</div></div>
+        <ul class="p-bullets"><li>숭실대 커뮤니티 &lt;그라운드&gt; 개선 기획</li></ul>
       </div>
     </div>
   </div>
@@ -426,15 +431,15 @@ footer svg.ic{color:var(--blue)}
           </defs>
           <rect x="0" y="8" width="64" height="24" rx="12" fill="#f3f4f6"/><text x="32" y="24" text-anchor="middle" class="lab" fill="#6b7280">AS-IS</text>
           <g>
-            <rect x="90" y="0" width="200" height="52" rx="12" fill="#f9fafb" stroke="#e2e4e9" stroke-width="1.5"/>
+            <rect x="90" y="0" width="200" height="52" rx="12" fill="#f9fafb"/>
             <text x="190" y="22" text-anchor="middle" class="t1g">채팅으로 접수</text>
             <text x="190" y="40" text-anchor="middle" class="t2l">자유 형식 요청, 형식 제각각</text>
             <path d="M311 21 l7 5 -7 5" fill="none" stroke="#c2c7cf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <rect x="338" y="0" width="200" height="52" rx="12" fill="#f9fafb" stroke="#e2e4e9" stroke-width="1.5"/>
+            <rect x="338" y="0" width="200" height="52" rx="12" fill="#f9fafb"/>
             <text x="438" y="22" text-anchor="middle" class="t1g">수작업 분류</text>
             <text x="438" y="40" text-anchor="middle" class="t2l">지역별, 영역별 수동 배분</text>
             <path d="M559 21 l7 5 -7 5" fill="none" stroke="#c2c7cf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <rect x="586" y="0" width="200" height="52" rx="12" fill="#f9fafb" stroke="#e2e4e9" stroke-width="1.5"/>
+            <rect x="586" y="0" width="200" height="52" rx="12" fill="#f9fafb"/>
             <text x="686" y="22" text-anchor="middle" class="t1g">담당자 개인 관리</text>
             <text x="686" y="40" text-anchor="middle" class="t2l">개별 메모와 기억에 의존</text>
           </g>
@@ -446,19 +451,19 @@ footer svg.ic{color:var(--blue)}
           <line x1="0" y1="104" x2="880" y2="104" stroke="#edeff3" stroke-width="1"/>
           <rect x="0" y="126" width="64" height="24" rx="12" fill="#eaf2fe"/><text x="32" y="142" text-anchor="middle" class="lab" fill="#1f6be0">TO-BE</text>
           <g>
-            <rect x="90" y="118" width="176" height="52" rx="12" fill="#f5f9ff" stroke="#bcd7fb" stroke-width="1.5"/>
+            <rect x="90" y="118" width="176" height="52" rx="12" fill="#f5f9ff"/>
             <text x="178" y="140" text-anchor="middle" class="t1">단계별 접수</text>
             <text x="178" y="158" text-anchor="middle" class="t2">모바일 스텝바이스텝 폼</text>
             <path d="M285 139 l7 5 -7 5" fill="none" stroke="#7fb0f5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <rect x="310" y="118" width="176" height="52" rx="12" fill="#f5f9ff" stroke="#bcd7fb" stroke-width="1.5"/>
+            <rect x="310" y="118" width="176" height="52" rx="12" fill="#f5f9ff"/>
             <text x="398" y="140" text-anchor="middle" class="t1">자동 분류</text>
             <text x="398" y="158" text-anchor="middle" class="t2">매장, 기기 기준</text>
             <path d="M505 139 l7 5 -7 5" fill="none" stroke="#7fb0f5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <rect x="530" y="118" width="176" height="52" rx="12" fill="#f5f9ff" stroke="#bcd7fb" stroke-width="1.5"/>
+            <rect x="530" y="118" width="176" height="52" rx="12" fill="#f5f9ff"/>
             <text x="618" y="140" text-anchor="middle" class="t1">개인 업무 탭 + 미배정 탭</text>
             <text x="618" y="158" text-anchor="middle" class="t2">분담 확인, 누락 방지</text>
             <path d="M725 139 l7 5 -7 5" fill="none" stroke="#7fb0f5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <rect x="750" y="118" width="130" height="52" rx="12" fill="#f5f9ff" stroke="#bcd7fb" stroke-width="1.5"/>
+            <rect x="750" y="118" width="130" height="52" rx="12" fill="#f5f9ff"/>
             <text x="815" y="140" text-anchor="middle" class="t1">기록 기반 소통</text>
             <text x="815" y="158" text-anchor="middle" class="t2">댓글, 푸시 알림</text>
           </g>
@@ -493,7 +498,7 @@ footer svg.ic{color:var(--blue)}
           <line x1="550" y1="54" x2="550" y2="68" stroke="#d3d8e0" stroke-width="1.5"/>
           <line x1="770" y1="54" x2="770" y2="68" stroke="#d3d8e0" stroke-width="1.5"/>
           <g>
-            <rect x="20" y="68" width="180" height="146" rx="12" fill="#fff" stroke="#e2e4e9" stroke-width="1.5"/>
+            <rect x="20" y="68" width="180" height="146" rx="12" fill="#f9fafb"/>
             <rect x="20" y="68" width="180" height="32" rx="12" fill="#f3f4f6"/>
             <text x="110" y="89" text-anchor="middle" class="t1g">접수 등록</text>
             <text x="110" y="122" text-anchor="middle" class="t2">단계별 입력 폼</text>
@@ -501,7 +506,7 @@ footer svg.ic{color:var(--blue)}
             <text x="110" y="166" text-anchor="middle" class="t2">증상 입력, 사진 첨부</text>
           </g>
           <g>
-            <rect x="240" y="68" width="180" height="146" rx="12" fill="#fff" stroke="#e2e4e9" stroke-width="1.5"/>
+            <rect x="240" y="68" width="180" height="146" rx="12" fill="#f9fafb"/>
             <rect x="240" y="68" width="180" height="32" rx="12" fill="#f3f4f6"/>
             <text x="330" y="89" text-anchor="middle" class="t1g">접수 목록</text>
             <text x="330" y="122" text-anchor="middle" class="t2">매장별, 기기별 분류</text>
@@ -509,7 +514,7 @@ footer svg.ic{color:var(--blue)}
             <text x="330" y="166" text-anchor="middle" class="t2">처리 이력 조회</text>
           </g>
           <g>
-            <rect x="460" y="68" width="180" height="146" rx="12" fill="#fff" stroke="#bcd7fb" stroke-width="1.5"/>
+            <rect x="460" y="68" width="180" height="146" rx="12" fill="#f9fafb"/>
             <rect x="460" y="68" width="180" height="32" rx="12" fill="#eaf2fe"/>
             <text x="550" y="89" text-anchor="middle" class="t1b">개인 업무 탭</text>
             <text x="550" y="122" text-anchor="middle" class="t2">내 분담 건만 표시</text>
@@ -517,7 +522,7 @@ footer svg.ic{color:var(--blue)}
             <text x="550" y="166" text-anchor="middle" class="t2">댓글, 푸시 소통</text>
           </g>
           <g>
-            <rect x="680" y="68" width="180" height="146" rx="12" fill="#fff" stroke="#bcd7fb" stroke-width="1.5"/>
+            <rect x="680" y="68" width="180" height="146" rx="12" fill="#f9fafb"/>
             <rect x="680" y="68" width="180" height="32" rx="12" fill="#eaf2fe"/>
             <text x="770" y="89" text-anchor="middle" class="t1b">미배정 탭</text>
             <text x="770" y="122" text-anchor="middle" class="t2">미배정 건 자동 분류</text>
@@ -578,23 +583,23 @@ footer svg.ic{color:var(--blue)}
           </defs>
           <rect x="0" y="10" width="64" height="24" rx="12" fill="#f3f4f6"/><text x="32" y="26" text-anchor="middle" class="lab" fill="#6b7280">AS-IS</text>
           <g>
-            <rect x="90" y="0" width="150" height="46" rx="11" fill="#f9fafb" stroke="#e2e4e9" stroke-width="1.5"/><text x="165" y="20" text-anchor="middle" class="t1g">홈</text><text x="165" y="36" text-anchor="middle" class="t2l">기능 인지 실패</text>
+            <rect x="90" y="0" width="150" height="46" rx="11" fill="#f9fafb"/><text x="165" y="20" text-anchor="middle" class="t1g">홈</text><text x="165" y="36" text-anchor="middle" class="t2l">기능 인지 실패</text>
             <path d="M256 18 l7 5 -7 5" fill="none" stroke="#c2c7cf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <rect x="278" y="0" width="150" height="46" rx="11" fill="#f9fafb" stroke="#e2e4e9" stroke-width="1.5"/><text x="353" y="20" text-anchor="middle" class="t1g">탐색 탭</text><text x="353" y="36" text-anchor="middle" class="t2l">정적 아이콘 버튼</text>
+            <rect x="278" y="0" width="150" height="46" rx="11" fill="#f9fafb"/><text x="353" y="20" text-anchor="middle" class="t1g">탐색 탭</text><text x="353" y="36" text-anchor="middle" class="t2l">정적 아이콘 버튼</text>
             <path d="M444 18 l7 5 -7 5" fill="none" stroke="#c2c7cf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <rect x="466" y="0" width="150" height="46" rx="11" fill="#f9fafb" stroke="#e2e4e9" stroke-width="1.5"/><text x="541" y="20" text-anchor="middle" class="t1g">깊은 탐색 경로</text><text x="541" y="36" text-anchor="middle" class="t2l">다단계 이동</text>
+            <rect x="466" y="0" width="150" height="46" rx="11" fill="#f9fafb"/><text x="541" y="20" text-anchor="middle" class="t1g">깊은 탐색 경로</text><text x="541" y="36" text-anchor="middle" class="t2l">다단계 이동</text>
             <path d="M632 18 l7 5 -7 5" fill="none" stroke="#c2c7cf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <rect x="654" y="0" width="150" height="46" rx="11" fill="#f3f4f6" stroke="#e2e4e9" stroke-width="1.5"/><text x="729" y="20" text-anchor="middle" class="t1g">참여 전 이탈</text><text x="729" y="36" text-anchor="middle" class="t2l">낮은 클릭율</text>
+            <rect x="654" y="0" width="150" height="46" rx="11" fill="#f3f4f6"/><text x="729" y="20" text-anchor="middle" class="t1g">참여 전 이탈</text><text x="729" y="36" text-anchor="middle" class="t2l">낮은 클릭율</text>
           </g>
           <rect x="0" y="104" width="64" height="24" rx="12" fill="#eaf2fe"/><text x="32" y="120" text-anchor="middle" class="lab" fill="#1f6be0">TO-BE</text>
           <g>
-            <rect x="90" y="94" width="150" height="46" rx="11" fill="#f5f9ff" stroke="#bcd7fb" stroke-width="1.5"/><text x="165" y="114" text-anchor="middle" class="t1">홈</text><text x="165" y="130" text-anchor="middle" class="t2">진입 동선 정비</text>
+            <rect x="90" y="94" width="150" height="46" rx="11" fill="#f5f9ff"/><text x="165" y="114" text-anchor="middle" class="t1">홈</text><text x="165" y="130" text-anchor="middle" class="t2">진입 동선 정비</text>
             <path d="M256 112 l7 5 -7 5" fill="none" stroke="#7fb0f5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <rect x="278" y="94" width="150" height="46" rx="11" fill="#f5f9ff" stroke="#bcd7fb" stroke-width="1.5"/><text x="353" y="114" text-anchor="middle" class="t1">인터랙티브 버튼</text><text x="353" y="130" text-anchor="middle" class="t2">기능 직관적 인지</text>
+            <rect x="278" y="94" width="150" height="46" rx="11" fill="#f5f9ff"/><text x="353" y="114" text-anchor="middle" class="t1">인터랙티브 버튼</text><text x="353" y="130" text-anchor="middle" class="t2">기능 직관적 인지</text>
             <path d="M444 112 l7 5 -7 5" fill="none" stroke="#7fb0f5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <rect x="466" y="94" width="150" height="46" rx="11" fill="#f5f9ff" stroke="#bcd7fb" stroke-width="1.5"/><text x="541" y="114" text-anchor="middle" class="t1">추천 기반 노출</text><text x="541" y="130" text-anchor="middle" class="t2">탐색 구조 개편</text>
+            <rect x="466" y="94" width="150" height="46" rx="11" fill="#f5f9ff"/><text x="541" y="114" text-anchor="middle" class="t1">추천 기반 노출</text><text x="541" y="130" text-anchor="middle" class="t2">탐색 구조 개편</text>
             <path d="M632 112 l7 5 -7 5" fill="none" stroke="#7fb0f5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <rect x="654" y="94" width="150" height="46" rx="11" fill="#eaf2fe" stroke="#bcd7fb" stroke-width="1.5"/><text x="729" y="114" text-anchor="middle" class="t1b">참여 전환</text><text x="729" y="130" text-anchor="middle" class="t2">경로 단축</text>
+            <rect x="654" y="94" width="150" height="46" rx="11" fill="#eaf2fe"/><text x="729" y="114" text-anchor="middle" class="t1b">참여 전환</text><text x="729" y="130" text-anchor="middle" class="t2">경로 단축</text>
           </g>
         </svg>
       </div>
@@ -631,20 +636,20 @@ footer svg.ic{color:var(--blue)}
       <div class="dg-c">
         <svg class="diagram" viewBox="0 0 880 76" xmlns="http://www.w3.org/2000/svg">
           <g>
-            <rect x="0" y="10" width="196" height="56" rx="12" fill="#fdf4f3" stroke="#f3b3ae" stroke-width="1.5"/>
+            <rect x="0" y="10" width="196" height="56" rx="12" fill="#fdf4f3"/>
             <text x="98" y="34" text-anchor="middle" class="t1">카테고리, 키워드 선택</text>
             <text x="98" y="52" text-anchor="middle" class="t2">경험을 꺼내는 트리거</text>
             <text x="213" y="43" text-anchor="middle" style="font:700 15px Pretendard,sans-serif" fill="#e8867f">&gt;</text>
-            <rect x="228" y="10" width="196" height="56" rx="12" fill="#fdf4f3" stroke="#f3b3ae" stroke-width="1.5"/>
+            <rect x="228" y="10" width="196" height="56" rx="12" fill="#fdf4f3"/>
             <text x="326" y="34" text-anchor="middle" class="t1">AI 초안 제안</text>
             <text x="326" y="52" text-anchor="middle" class="t2">키워드 기반 생성</text>
             <text x="441" y="43" text-anchor="middle" style="font:700 15px Pretendard,sans-serif" fill="#e8867f">&gt;</text>
-            <rect x="456" y="10" width="196" height="56" rx="12" fill="#fdf4f3" stroke="#f3b3ae" stroke-width="1.5"/>
+            <rect x="456" y="10" width="196" height="56" rx="12" fill="#fdf4f3"/>
             <text x="554" y="34" text-anchor="middle" class="t1">표현 다듬기</text>
             <text x="554" y="52" text-anchor="middle" class="t2">사용자가 수정, 확정</text>
             <text x="669" y="43" text-anchor="middle" style="font:700 15px Pretendard,sans-serif" fill="#e8867f">&gt;</text>
-            <rect x="684" y="10" width="196" height="56" rx="12" fill="#fbe3e1" stroke="#f3b3ae" stroke-width="1.5"/>
-            <text x="782" y="34" text-anchor="middle" class="t1b">리뷰 완성, 등록</text>
+            <rect x="684" y="10" width="196" height="56" rx="12" fill="#fdf4f3"/>
+            <text x="782" y="34" text-anchor="middle" class="t1">리뷰 완성, 등록</text>
             <text x="782" y="52" text-anchor="middle" class="t2">복사 후 바로 사용</text>
           </g>
         </svg>
@@ -711,23 +716,23 @@ footer svg.ic{color:var(--blue)}
       <div class="dg-c">
         <svg class="diagram" viewBox="0 0 880 216" xmlns="http://www.w3.org/2000/svg">
           <g>
-            <rect x="0" y="0" width="160" height="52" rx="12" fill="#fdf3f9" stroke="#f2aed5" stroke-width="1.5"/>
+            <rect x="0" y="0" width="160" height="52" rx="12" fill="#fdf3f9"/>
             <text x="80" y="22" text-anchor="middle" class="t1">니즈 인식</text>
             <text x="80" y="40" text-anchor="middle" class="t2">지그재그 앱</text>
             <path d="M167 21 l7 5 -7 5" fill="none" stroke="#c2c7cf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <rect x="180" y="0" width="160" height="52" rx="12" fill="#fdf3f9" stroke="#f2aed5" stroke-width="1.5"/>
+            <rect x="180" y="0" width="160" height="52" rx="12" fill="#fdf3f9"/>
             <text x="260" y="22" text-anchor="middle" class="t1">내부 탐색</text>
             <text x="260" y="40" text-anchor="middle" class="t2">지그재그 앱</text>
             <path d="M347 21 l7 5 -7 5" fill="none" stroke="#c2c7cf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <rect x="360" y="0" width="160" height="52" rx="12" fill="#f9fafb" stroke="#e2e4e9" stroke-width="1.5"/>
+            <rect x="360" y="0" width="160" height="52" rx="12" fill="#f9fafb"/>
             <text x="440" y="22" text-anchor="middle" class="t1g">외부 탐색</text>
             <text x="440" y="40" text-anchor="middle" class="t2l">인스타그램, 유튜브 등</text>
             <path d="M527 21 l7 5 -7 5" fill="none" stroke="#c2c7cf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <rect x="540" y="0" width="160" height="52" rx="12" fill="#fdf3f9" stroke="#f2aed5" stroke-width="1.5"/>
+            <rect x="540" y="0" width="160" height="52" rx="12" fill="#fdf3f9"/>
             <text x="620" y="22" text-anchor="middle" class="t1">복귀, 재검색</text>
             <text x="620" y="40" text-anchor="middle" class="t2">지그재그 앱</text>
             <path d="M707 21 l7 5 -7 5" fill="none" stroke="#c2c7cf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <rect x="720" y="0" width="160" height="52" rx="12" fill="#fdf3f9" stroke="#f2aed5" stroke-width="1.5"/>
+            <rect x="720" y="0" width="160" height="52" rx="12" fill="#fdf3f9"/>
             <text x="800" y="22" text-anchor="middle" class="t1">구매</text>
             <text x="800" y="40" text-anchor="middle" class="t2">지그재그 앱</text>
           </g>
@@ -739,11 +744,11 @@ footer svg.ic{color:var(--blue)}
             <text x="800" y="78" text-anchor="middle" class="t2l">"불안하지만 일단 구매"</text>
           </g>
           <g>
-            <rect x="0" y="100" width="430" height="96" rx="12" fill="#f9fafb" stroke="#e2e4e9" stroke-width="1.5"/>
+            <rect x="0" y="100" width="430" height="96" rx="12" fill="#f9fafb"/>
             <text x="18" y="128" class="lab" fill="#d21f7f">PAIN 1</text>
             <text x="18" y="152" class="t2">방대한 검색 결과와 스타일 키워드 중심 코디 제안으로</text>
             <text x="18" y="172" class="t2">특정 아이템 기준으로 다양한 코디 조합을 탐색하기 어려움</text>
-            <rect x="450" y="100" width="430" height="96" rx="12" fill="#f9fafb" stroke="#e2e4e9" stroke-width="1.5"/>
+            <rect x="450" y="100" width="430" height="96" rx="12" fill="#f9fafb"/>
             <text x="468" y="128" class="lab" fill="#d21f7f">PAIN 2</text>
             <text x="468" y="152" class="t2">외부 채널과 지그재그 간 반복 이동으로 인한</text>
             <text x="468" y="172" class="t2">탐색 단절과 피로 누적, 높은 이탈 위험</text>
@@ -779,7 +784,7 @@ footer svg.ic{color:var(--blue)}
           <line x1="440" y1="54" x2="440" y2="66" stroke="#d3d8e0" stroke-width="1.5"/>
           <line x1="740" y1="54" x2="740" y2="66" stroke="#d3d8e0" stroke-width="1.5"/>
           <g>
-            <rect x="30" y="66" width="220" height="136" rx="12" fill="#fff" stroke="#e2e4e9" stroke-width="1.5"/>
+            <rect x="30" y="66" width="220" height="136" rx="12" fill="#f9fafb"/>
             <rect x="30" y="66" width="220" height="32" rx="12" fill="#f3f4f6"/>
             <text x="140" y="87" text-anchor="middle" class="t1g">탐색 피드</text>
             <text x="140" y="120" text-anchor="middle" class="t2">취향과 트렌드 반영 코디 피드</text>
@@ -787,7 +792,7 @@ footer svg.ic{color:var(--blue)}
             <text x="140" y="164" text-anchor="middle" class="t2">코디 상세에서 상품 연결</text>
           </g>
           <g>
-            <rect x="330" y="66" width="220" height="136" rx="12" fill="#fff" stroke="#f2aed5" stroke-width="1.5"/>
+            <rect x="330" y="66" width="220" height="136" rx="12" fill="#f9fafb"/>
             <rect x="330" y="66" width="220" height="32" rx="12" fill="#fbe4f1"/>
             <text x="440" y="87" text-anchor="middle" class="t1b">스타일 보드</text>
             <text x="440" y="120" text-anchor="middle" class="t2">마음에 드는 코디 저장</text>
@@ -795,7 +800,7 @@ footer svg.ic{color:var(--blue)}
             <text x="440" y="164" text-anchor="middle" class="t2">나만의 조합 구성</text>
           </g>
           <g>
-            <rect x="630" y="66" width="220" height="136" rx="12" fill="#fff" stroke="#e2e4e9" stroke-width="1.5"/>
+            <rect x="630" y="66" width="220" height="136" rx="12" fill="#f9fafb"/>
             <rect x="630" y="66" width="220" height="32" rx="12" fill="#f3f4f6"/>
             <text x="740" y="87" text-anchor="middle" class="t1g">구매 연결</text>
             <text x="740" y="120" text-anchor="middle" class="t2">보드 속 착용 상품 확인</text>
@@ -865,15 +870,15 @@ footer svg.ic{color:var(--blue)}
       <div class="dg-c">
         <svg class="diagram" viewBox="0 0 880 148" xmlns="http://www.w3.org/2000/svg">
           <g>
-            <rect x="0" y="46" width="170" height="56" rx="12" fill="#fbfdf2" stroke="#d4e494" stroke-width="1.5"/>
+            <rect x="0" y="46" width="170" height="56" rx="12" fill="#fbfdf2"/>
             <text x="85" y="70" text-anchor="middle" class="t1">감정 대분류 선택</text>
             <text x="85" y="88" text-anchor="middle" class="t2">기쁨, 슬픔 등 18종</text>
             <path d="M180 69 l7 5 -7 5" fill="none" stroke="#b1cb4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <rect x="200" y="46" width="170" height="56" rx="12" fill="#fbfdf2" stroke="#d4e494" stroke-width="1.5"/>
+            <rect x="200" y="46" width="170" height="56" rx="12" fill="#fbfdf2"/>
             <text x="285" y="70" text-anchor="middle" class="t1">감정 소분류 선택</text>
             <text x="285" y="88" text-anchor="middle" class="t2">116개 감정어, 2뎁스</text>
             <path d="M380 69 l7 5 -7 5" fill="none" stroke="#b1cb4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <rect x="400" y="46" width="170" height="56" rx="12" fill="#fbfdf2" stroke="#d4e494" stroke-width="1.5"/>
+            <rect x="400" y="46" width="170" height="56" rx="12" fill="#fbfdf2"/>
             <text x="485" y="70" text-anchor="middle" class="t1">마이크로 저널링</text>
             <text x="485" y="88" text-anchor="middle" class="t2">부담 없는 짧은 기록</text>
           </g>
@@ -882,10 +887,10 @@ footer svg.ic{color:var(--blue)}
           <path d="M578 74 h32 v44 h18" fill="none" stroke="#b1cb4f" stroke-width="1.6"/>
           <path d="M622 113 l7 5 -7 5" fill="none" stroke="#b1cb4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           <g>
-            <rect x="644" y="2" width="236" height="56" rx="12" fill="#fbfdf2" stroke="#d4e494" stroke-width="1.5"/>
+            <rect x="644" y="2" width="236" height="56" rx="12" fill="#fbfdf2"/>
             <text x="762" y="26" text-anchor="middle" class="t1">감정 통계</text>
             <text x="762" y="44" text-anchor="middle" class="t2">감정 비율 차트로 회고</text>
-            <rect x="644" y="90" width="236" height="56" rx="12" fill="#fbfdf2" stroke="#d4e494" stroke-width="1.5"/>
+            <rect x="644" y="90" width="236" height="56" rx="12" fill="#fbfdf2"/>
             <text x="762" y="114" text-anchor="middle" class="t1">감정 캘린더</text>
             <text x="762" y="132" text-anchor="middle" class="t2">월간 감정 흐름 확인</text>
           </g>
